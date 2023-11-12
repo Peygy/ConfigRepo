@@ -3,6 +3,7 @@ import zlib
 import os.path as path
 from os import listdir
 
+#D:\Programming\MIREA\Конфиг\Практика5\ConfigRepo
 
 class GitVisual:
 	def __init__(self, repo_path: str):
@@ -45,7 +46,7 @@ class GitVisual:
 			with open(path.join(self.repo_path, ".git", "refs", "heads", branch)) as f:
 				self.dot = Digraph(comment=f'Commits graph for {self.repo_name}, branch {branch}', strict=True)
 				self.read_commit(f.readline().strip())
-				self.render_graph(f'commit_graph_for_{self.repo_name}_{branch}')
+				self.render_graph(f'input.dot')
 
 	def render_graph(self, output_file='commit_graph', view=True):
 		self.dot.format = 'png'
@@ -56,7 +57,7 @@ class GitVisual:
 
 
 if __name__ == "__main__":
-	repo_path = input("Enter full path to repo (if you made mistake in it, I will find you and rip off your spine) > ")
+	repo_path = "D:\Programming\MIREA\Конфиг\Практика5\ConfigRepo"
 	if path.exists(repo_path):
 		git = GitVisual(repo_path)
 		git.build_graph()
