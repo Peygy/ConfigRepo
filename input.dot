@@ -1,0 +1,87 @@
+digraph {
+	graph [bb="0,0,327.04,873.67"];
+	node [label="\N"];
+	"First
+
+5.docx
+GitVisual.py"	[height=1.3995,
+		pos="163.52,823.29",
+		width=1.6843];
+	"Adding
+
+5.docx
+GitVisual.py"	[height=1.3995,
+		pos="163.52,686.53",
+		width=1.6843];
+	"First
+
+5.docx
+GitVisual.py" -> "Adding
+
+5.docx
+GitVisual.py"	[pos="e,163.52,737.12 163.52,772.49 163.52,764.64 163.52,756.45 163.52,748.39"];
+	"New File
+
+5.docx
+GitVisual.py"	[height=1.3995,
+		pos="163.52,549.76",
+		width=1.6843];
+	"Adding
+
+5.docx
+GitVisual.py" -> "New File
+
+5.docx
+GitVisual.py"	[pos="e,163.52,600.36 163.52,635.73 163.52,627.88 163.52,619.69 163.52,611.63"];
+	"Add NewFiles
+
+5.docx
+5.py
+GitVisual.py
+commit_graph_for_ConfigRepo_main"	[height=2.0182,
+		pos="163.52,390.73",
+		width=4.5422];
+	"New File
+
+5.docx
+GitVisual.py" -> "Add NewFiles
+
+5.docx
+5.py
+GitVisual.py
+commit_graph_for_ConfigRepo_main"	[pos="e,163.52,463.75 163.52,499.08 163.52,491.44 163.52,483.39 163.52,475.26"];
+	"Fixes
+
+5.docx
+GitVisual.py
+input.dot
+output.png"	[height=2.0182,
+		pos="163.52,209.42",
+		width=1.6843];
+	"Add NewFiles
+
+5.docx
+5.py
+GitVisual.py
+commit_graph_for_ConfigRepo_main" -> "Fixes
+
+5.docx
+GitVisual.py
+input.dot
+output.png"	[pos="e,163.52,282.33 163.52,317.83 163.52,309.88 163.52,301.74 163.52,293.67"];
+	"Major fixes
+
+5.docx
+5.py"	[height=1.3995,
+		pos="163.52,50.381",
+		width=1.5517];
+	"Fixes
+
+5.docx
+GitVisual.py
+input.dot
+output.png" -> "Major fixes
+
+5.docx
+5.py"	[pos="e,163.52,101.05 163.52,136.33 163.52,128.32 163.52,120.21 163.52,112.35"];
+}
