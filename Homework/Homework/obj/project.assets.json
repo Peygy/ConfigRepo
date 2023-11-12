@@ -45,11 +45,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\Homework\\Homework\\Homework.csproj",
+      "projectUniqueName": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\ConfigRepo\\Homework\\Homework\\Homework.csproj",
       "projectName": "Homework",
-      "projectPath": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\Homework\\Homework\\Homework.csproj",
+      "projectPath": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\ConfigRepo\\Homework\\Homework\\Homework.csproj",
       "packagesPath": "C:\\Users\\isako\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\Homework\\Homework\\obj\\",
+      "outputPath": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\ConfigRepo\\Homework\\Homework\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\isako\\AppData\\Roaming\\NuGet\\NuGet.Config",

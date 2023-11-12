@@ -14,7 +14,7 @@ class GitGraphVisualizer
     {
         Console.WriteLine("Git Graph Visualizer");
 
-        string repoPath = GetGitRepositoryPath();
+        string repoPath = "D:\\Programming\\MIREA\\Конфиг\\Практика5\\ConfigRepo\\.git";
 
         if (repoPath != null)
         {
@@ -26,14 +26,6 @@ class GitGraphVisualizer
         {
             Console.WriteLine("Not a valid git repository.");
         }
-    }
-
-    static string GetGitRepositoryPath()
-    {
-        string currentDirectory = Directory.GetCurrentDirectory();
-        string gitDirectory = Path.Combine(currentDirectory, ".git");
-
-        return Directory.Exists(gitDirectory) ? currentDirectory : null;
     }
 
     static DotGraph GenerateDotGraph(string repoPath)

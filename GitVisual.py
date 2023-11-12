@@ -1,66 +1,62 @@
-import os
+from graphviz import Digraph
 import zlib
+import os.path as path
+from os import listdir
 
-def read_git_object(sha):
-    object_path = os.path.join('.git', 'objects', sha[:2], sha[2:])
-    with open(object_path, 'rb') as f:
-        content = zlib.decompress(f.read()).decode('utf-8')
-    return content
 
-def parse_commit(commit_data):
-    lines = commit_data.split('\n')
-    tree_sha = lines[0].split()[1]
-    parent_shas = [line.split()[1] for line in lines[1:] if line.startswith('parent')]
-    return tree_sha, parent_shas
+class GitVisual:
+	def __init__(self, repo_path: str):
+		self.repo_path = repo_path
+		self.repo_name = repo_path.split('\\')[-1]
+		self.dot = Digraph(comment=f'Commits graph for {self.repo_name}', strict=True)
 
-def parse_tree(tree_data):
-    lines = tree_data.split('\n')
-    entries = []
-    for line in lines:
-        if line:
-            parts = line.split()
-            mode = parts[0]
-            if len(parts) == 3:  # File or Directory mode
-                name, sha = parts[2], parts[1]
-                entries.append((mode, name, sha))
-            elif len(parts) == 2 and parts[1] == 'commit':  # Submodule mode
-                name, sha = parts[0], parts[1]
-                entries.append((mode, name, sha))
-    return entries
+	def get_branches(self) -> list:
+		return listdir(path.join(self.repo_path, ".git", "refs", "heads"))
 
-def build_dot_graph(sha, parent_shas):
-    dot = f'digraph commit_{sha} {{\n'
-    dot += f'  label = "Commit {sha}"\n'
-    for parent_sha in parent_shas:
-        dot += f'  commit_{parent_sha} -> commit_{sha}\n'
-    dot += build_dot_tree(sha)
-    dot += '}\n'
-    return dot
+	def get_head_path(self) -> str:
+		with open(path.join(self.repo_path, ".git", "HEAD")) as f:
+			return f.readline().strip().split(" ")[1]
 
-def build_dot_tree(sha):
-    tree_data = read_git_object(sha)
-    entries = parse_tree(tree_data)
-    dot = ''
-    for mode, name, child_sha in entries:
-        if mode == '100644' or mode == '040000':  # File or Directory mode
-            dot += f'  {mode}_{child_sha} [label="{name}", shape={"box" if mode == "100644" else "folder"}]\n'
-            dot += f'  commit_{sha} -> {mode}_{child_sha}\n'
-            if mode == '040000':  # If it's a directory, recursively build its tree
-                dot += build_dot_tree(child_sha)
-    return dot
+	def read_tree(self, hash: str) -> list:
+		with open(path.join(self.repo_path, ".git", "objects", hash[:2], hash[2:]), 'rb') as f:
+			raw_data = zlib.decompress(f.read()).split(b'\x00')
+			delim = raw_data[1].split()[0]
+			return [i.split()[-1].decode() for i in raw_data if delim in i]
 
-def main():
-    # Предполагаем, что у вас есть корректный sha последнего коммита
-    latest_commit_sha = '24a05845708c8eab14c7d670ec5c1ea9f29fea60'
+	def read_commit(self, hash: str):
+		with open(path.join(self.repo_path, ".git", "objects", hash[:2], hash[2:]), 'rb') as f:
+			raw_data = zlib.decompress(f.read()).split(b'\x00')
+			commit_message = raw_data[1].split(b'\n\n')[1].decode()
+			files = ""
+			parent_message = None
+			sections = raw_data[1].split(b'\n')
+			for section in sections:
+				if b'tree' in section:
+					files = '\n'.join(self.read_tree(section.split()[1].decode()))
+				if b'parent' in section:
+					parent_message = self.read_commit(section.split()[1].decode())
+			child_message = commit_message + "\n" + files
+			if parent_message is not None:
+				self.add_edge(parent_message, child_message)
+			return child_message
 
-    commit_sha = latest_commit_sha
-    while commit_sha:
-        commit_data = read_git_object(commit_sha)
-        tree_sha, parent_shas = parse_commit(commit_data)
-        dot_graph = build_dot_graph(commit_sha, parent_shas)
-        print(dot_graph)
+	def build_graph(self):
+		for branch in self.get_branches():
+			with open(path.join(self.repo_path, ".git", "refs", "heads", branch)) as f:
+				self.dot = Digraph(comment=f'Commits graph for {self.repo_name}, branch {branch}', strict=True)
+				self.read_commit(f.readline().strip())
+				self.render_graph(f'commit_graph_for_{self.repo_name}_{branch}')
 
-        commit_sha = parent_shas[0] if parent_shas else None
+	def render_graph(self, output_file='commit_graph', view=True):
+		self.dot.format = 'png'
+		self.dot.render(output_file, view=view)
 
-if __name__ == '__main__':
-    main()
+	def add_edge(self, parent_message: str, child_message: str):
+		self.dot.edge(parent_message, child_message)
+
+
+if __name__ == "__main__":
+	repo_path = input("Enter full path to repo (if you made mistake in it, I will find you and rip off your spine) > ")
+	if path.exists(repo_path):
+		git = GitVisual(repo_path)
+		git.build_graph()

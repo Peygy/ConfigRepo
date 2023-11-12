@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SxIPe9qzRVvzHiMIzYM3FcLJ7ayySf6n+dxS2CJyqdeJQvwrjPHD5T9YRM+Sau+6DemDsDwzVJXfwQs57dq/5A==",
+  "dgSpecHash": "OUdRnfk13fK2hlJ1MP3OZKpOGFAanzM7pqCHm6Fup3DZtnSp1f2BOAaX+/68NREoGV3JL+cxC754KRNYwqrD4Q==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\Homework\\Homework\\Homework.csproj",
+  "projectFilePath": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\ConfigRepo\\Homework\\Homework\\Homework.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\isako\\.nuget\\packages\\gigraph.dot\\3.0.1\\gigraph.dot.3.0.1.nupkg.sha512"
   ],
