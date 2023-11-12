@@ -1,0 +1,106 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "GiGraph.Dot/3.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/GiGraph.Dot.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/GiGraph.Dot.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GiGraph.Dot/3.0.1": {
+      "sha512": "TseDWNkBFKrrrzamgl2yeSDk9gmxQZvymcTqRydY/EL9REM9jBwCHFceg7AutXw3ULUL/FKhc1uFzfd2Cjpe/A==",
+      "type": "package",
+      "path": "gigraph.dot/3.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "gigraph.dot.3.0.1.nupkg.sha512",
+        "gigraph.dot.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/GiGraph.Dot.dll",
+        "lib/netstandard2.0/GiGraph.Dot.xml"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "GiGraph.Dot >= 3.0.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\isako\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\Homework\\Homework\\Homework.csproj",
+      "projectName": "Homework",
+      "projectPath": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\Homework\\Homework\\Homework.csproj",
+      "packagesPath": "C:\\Users\\isako\\.nuget\\packages\\",
+      "outputPath": "D:\\Programming\\MIREA\\Конфиг\\Практика5\\Homework\\Homework\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\isako\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "GiGraph.Dot": {
+            "target": "Package",
+            "version": "[3.0.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
