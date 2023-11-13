@@ -4,10 +4,10 @@ import os.path as path
 from os import scandir
 
 class GitHistoryVisualizer:
-	def __init__(self, repoPath: str):
+	def __init__(self):
 		self.dot = Digraph()
-		self.repoPath = repoPath
-		self.repoName = repoPath.split('\\')[-1]
+		self.repoPath = "D:\Programming\MIREA\Конфиг\Практика5\ConfigRepo"
+		self.repoName = self.repoPath.split('\\')[-1]
 
 
 	def ReadTree(self, commitHash):
@@ -73,6 +73,5 @@ class GitHistoryVisualizer:
 
 
 if __name__ == "__main__":
-	repoPath = "D:\Programming\MIREA\Конфиг\Практика5\ConfigRepo"
-	visualizer = GitHistoryVisualizer(repoPath)
+	visualizer = GitHistoryVisualizer()
 	visualizer.BuildDotGraph()

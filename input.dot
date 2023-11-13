@@ -1,17 +1,17 @@
 digraph {
-	graph [bb="0,0,327.04,873.67"];
+	graph [bb="0,0,327.04,1077.3"];
 	node [label="\N"];
 	"First
 
 5.docx
 GitVisual.py"	[height=1.3995,
-		pos="163.52,823.29",
+		pos="163.52,1026.9",
 		width=1.6843];
 	"Adding
 
 5.docx
 GitVisual.py"	[height=1.3995,
-		pos="163.52,686.53",
+		pos="163.52,890.11",
 		width=1.6843];
 	"First
 
@@ -19,12 +19,12 @@ GitVisual.py"	[height=1.3995,
 GitVisual.py" -> "Adding
 
 5.docx
-GitVisual.py"	[pos="e,163.52,737.12 163.52,772.49 163.52,764.64 163.52,756.45 163.52,748.39"];
+GitVisual.py"	[pos="e,163.52,940.71 163.52,976.08 163.52,968.23 163.52,960.04 163.52,951.97"];
 	"New File
 
 5.docx
 GitVisual.py"	[height=1.3995,
-		pos="163.52,549.76",
+		pos="163.52,753.35",
 		width=1.6843];
 	"Adding
 
@@ -32,14 +32,14 @@ GitVisual.py"	[height=1.3995,
 GitVisual.py" -> "New File
 
 5.docx
-GitVisual.py"	[pos="e,163.52,600.36 163.52,635.73 163.52,627.88 163.52,619.69 163.52,611.63"];
+GitVisual.py"	[pos="e,163.52,803.94 163.52,839.31 163.52,831.47 163.52,823.28 163.52,815.21"];
 	"Add NewFiles
 
 5.docx
 5.py
 GitVisual.py
 commit_graph_for_ConfigRepo_main"	[height=2.0182,
-		pos="163.52,390.73",
+		pos="163.52,594.31",
 		width=4.5422];
 	"New File
 
@@ -49,14 +49,14 @@ GitVisual.py" -> "Add NewFiles
 5.docx
 5.py
 GitVisual.py
-commit_graph_for_ConfigRepo_main"	[pos="e,163.52,463.75 163.52,499.08 163.52,491.44 163.52,483.39 163.52,475.26"];
+commit_graph_for_ConfigRepo_main"	[pos="e,163.52,667.34 163.52,702.66 163.52,695.03 163.52,686.97 163.52,678.84"];
 	"Fixes
 
 5.docx
 GitVisual.py
 input.dot
 output.png"	[height=2.0182,
-		pos="163.52,209.42",
+		pos="163.52,413",
 		width=1.6843];
 	"Add NewFiles
 
@@ -68,12 +68,12 @@ commit_graph_for_ConfigRepo_main" -> "Fixes
 5.docx
 GitVisual.py
 input.dot
-output.png"	[pos="e,163.52,282.33 163.52,317.83 163.52,309.88 163.52,301.74 163.52,293.67"];
+output.png"	[pos="e,163.52,485.92 163.52,521.41 163.52,513.47 163.52,505.33 163.52,497.25"];
 	"Major fixes
 
 5.docx
 5.py"	[height=1.3995,
-		pos="163.52,50.381",
+		pos="163.52,253.97",
 		width=1.5517];
 	"Fixes
 
@@ -83,5 +83,24 @@ input.dot
 output.png" -> "Major fixes
 
 5.docx
-5.py"	[pos="e,163.52,101.05 163.52,136.33 163.52,128.32 163.52,120.21 163.52,112.35"];
+5.py"	[pos="e,163.52,304.63 163.52,339.92 163.52,331.9 163.52,323.79 163.52,315.93"];
+	"Changes
+
+5.docx
+5.py
+input
+input.dot
+input.png"	[height=2.3276,
+		pos="163.52,83.792",
+		width=1.3455];
+	"Major fixes
+
+5.docx
+5.py" -> "Changes
+
+5.docx
+5.py
+input
+input.dot
+input.png"	[pos="e,163.52,168.06 163.52,203.42 163.52,195.76 163.52,187.63 163.52,179.37"];
 }
