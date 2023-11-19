@@ -10,8 +10,8 @@ class GitHistoryVisualizer:
 		self.repoName = self.repoPath.split('\\')[-1]
 
 
-	def ReadTree(self, commitHash):
-		treePath = path.join(self.repoPath, ".git\\objects", commitHash[:2], commitHash[2:])
+	def ReadTree(self, treeHash):
+		treePath = path.join(self.repoPath, ".git/objects", treeHash[:2], treeHash[2:])
 		with open(treePath, 'rb') as file:
 			decompressedData = zlib.decompress(file.read())
 			data = decompressedData.split(b'\x00')
@@ -20,13 +20,20 @@ class GitHistoryVisualizer:
 			result = []
 			for i in data:
 				if div in i:
+					a = i.split()
+
+					for k in a:
+						print(k)
+					print()
+
 					result.append(i.split()[-1].decode())
 
+			print()
 			return result
 
 
 	def ReadCommit(self, commitHash):
-		commitPath = path.join(self.repoPath, ".git\\objects", commitHash[:2], commitHash[2:])
+		commitPath = path.join(self.repoPath, ".git/objects", commitHash[:2], commitHash[2:])
 		with open(commitPath, 'rb') as file:
 			data = zlib.decompress(file.read()).split(b'\x00')
 			sections = data[1].split(b'\n')
@@ -41,7 +48,7 @@ class GitHistoryVisualizer:
 				if b'parent' in section:
 					headData = self.ReadCommit(section.split()[1].decode())
 
-			subData = f"{commitData}\n{files}"
+			subData = commitData + f"{files}"
 			if headData is not None:
 				self.AddBlock(headData, subData)
 
@@ -53,7 +60,7 @@ class GitHistoryVisualizer:
 
 
 	def GetBranches(self):
-		branchesDir = path.join(self.repoPath, ".git\\refs\\heads")
+		branchesDir = path.join(self.repoPath, ".git/refs/heads")
 		branches = []
 
 		for entry in scandir(branchesDir):
@@ -63,7 +70,7 @@ class GitHistoryVisualizer:
 
 	def BuildDotGraph(self):
 		for branch in self.GetBranches():
-			branchPath = path.join(self.repoPath, ".git\\refs\\heads", branch)
+			branchPath = path.join(self.repoPath, ".git/refs/heads", branch)
 			with open(branchPath) as file:
 				self.dot.format = 'png'
 				self.ReadCommit(file.readline().strip())

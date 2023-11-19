@@ -1,55 +1,56 @@
 digraph {
 	"First
-
 5.docx
 GitVisual.py" -> "Adding
-
 5.docx
 GitVisual.py"
 	"Adding
-
 5.docx
 GitVisual.py" -> "New File
-
 5.docx
 GitVisual.py"
 	"New File
-
 5.docx
 GitVisual.py" -> "Add NewFiles
-
 5.docx
 5.py
 GitVisual.py
 commit_graph_for_ConfigRepo_main"
 	"Add NewFiles
-
 5.docx
 5.py
 GitVisual.py
 commit_graph_for_ConfigRepo_main" -> "Fixes
-
 5.docx
 GitVisual.py
 input.dot
 output.png"
 	"Fixes
-
 5.docx
 GitVisual.py
 input.dot
 output.png" -> "Major fixes
-
 5.docx
 5.py"
 	"Major fixes
-
 5.docx
 5.py" -> "Changes
-
 5.docx
 5.py
 input
 input.dot
 input.png"
+	"Changes
+5.docx
+5.py
+input
+input.dot
+input.png" -> "Add golang
+5.docx
+5.py
+go.mod
+input
+input.dot
+input.png
+main.go"
 }
